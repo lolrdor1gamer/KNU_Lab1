@@ -1,5 +1,6 @@
 #pragma once
 #include <tuple>
+using namespace std;
 enum Cards
 {
 	k2,
@@ -26,11 +27,14 @@ enum Suit
 class Player
 {
 public:
-	std::tuple<Suit, Cards> m_FirstCard;
-	std::tuple<Suit, Cards> m_SecondCard;
+	tuple<Suit, Cards> m_FirstCard;
+	tuple<Suit, Cards> m_SecondCard;
 	float m_Chips;
+	Player()
+	{
 
-	Player(std::tuple<Suit, Cards> FirstCard, std::tuple<Suit, Cards> SecondCard, float Chips) : m_FirstCard(FirstCard), m_SecondCard(SecondCard), m_Chips(Chips)
+	}
+	Player(tuple<Suit, Cards> FirstCard, tuple<Suit, Cards> SecondCard, float Chips) : m_FirstCard(FirstCard), m_SecondCard(SecondCard), m_Chips(Chips)
 	{
 
 	}
