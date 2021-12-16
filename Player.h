@@ -1,9 +1,10 @@
 #pragma once
 #include <tuple>
+#include <vector>
 using namespace std;
 enum Cards
 {
-	k2,
+	k2=2,
 	k3,
 	k4,
 	k5,
@@ -12,10 +13,10 @@ enum Cards
 	k8,
 	k9,
 	k10,
-	kJ,
+	kJ=2,
 	kQ,
 	kK,
-	kA
+	kA=11
 };
 enum Suit
 {
@@ -27,16 +28,30 @@ enum Suit
 class Player
 {
 public:
-	tuple<Suit, Cards> m_FirstCard;
-	tuple<Suit, Cards> m_SecondCard;
+	vector<Card> m_Cards;
 	float m_Chips;
+	int m_count;
 	Player()
 	{
 
 	}
-	Player(tuple<Suit, Cards> FirstCard, tuple<Suit, Cards> SecondCard, float Chips) : m_FirstCard(FirstCard), m_SecondCard(SecondCard), m_Chips(Chips)
+	Player(Card FirstCard, Card SecondCard, float Chips) : m_Chips(Chips)
 	{
-
+		m_Cards.push_back(FirstCard);
+		m_Cards.push_back(SecondCard);
+		m_count = FirstCard.m_cards;
+		m_count += SecondCard.m_cards;
 	}
+private:
+
 };
 
+struct Card
+{
+public: 
+	Suit m_suit;
+	Cards m_cards;
+	Card(Suit suit, Cards card) : m_suit(suit), m_cards(card)
+	{
+	}
+};
